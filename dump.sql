@@ -15,6 +15,10 @@ create table if not exists accounts(
    email text not null unique,
    password text not null
    );
+
+  alter table clients
+  alter column birth_date drop not null;
+   
    
   create table if not exists deposits(
    number_account_id integer not null references accounts (number_account),
@@ -44,7 +48,17 @@ create table if not exists accounts(
      password text not null
      );
      
-     
+  alter table accounts
+  drop column client 
+ 
+  alter table accounts 
+    add column  client_name text NOT NULL,
+    add column client_cpf char(11) NOT  NULL unique ,
+    add column client_birth_date date,
+    add column client_phone text,
+    add column client_email text not null unique,
+    add column client_password text NOT NULL
+    
      
      
      
